@@ -1,0 +1,26 @@
+[
+	{
+		"title": "AI e Automazione",
+		"description": "Note su implementazione di sistemi AI aziendali, LangChain e pipeline automatizzate.",
+		"date": "2024-01-15",
+		"tags": ["AI", "LangChain", "Automazione"]
+	},
+	{
+		"title": "Architetture Multi-tenant",
+		"description": "Appunti su design patterns e best practices per sistemi SaaS scalabili.",
+		"date": "2024-01-10",
+		"tags": ["Architecture", "SaaS", "Laravel"]
+	},
+	{
+		"title": "Team Leadership",
+		"description": "Riflessioni su gestione team, mentorship e processi di sviluppo agili.",
+		"date": "2024-01-05",
+		"tags": ["Management", "Leadership", "Team"]
+	},
+	{
+		"title": "Stampa 3D e Design",
+		"description": "Esperimenti con OpenSCAD, progetti modulari e workflow creativi.",
+		"date": "2024-01-01",
+		"tags": ["3D Printing", "OpenSCAD", "Design"]
+	}
+]

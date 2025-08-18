@@ -1,0 +1,23 @@
+[
+	{
+		"dates": "2023 · Presente",
+		"role": "Tech Lead & Engineering Manager",
+		"company": "Netlex",
+		"description": "Guido lo sviluppo di una piattaforma per studi legali, coordino il team di sviluppo e le attività di allineamento tecnico.",
+		"logo": "/assets/images/experiences/netlex.ico"
+	},
+	{
+		"dates": "2020 · Presente",
+		"role": "Founder & CTO",
+		"company": "Worklume",
+		"description": "Fondatore di un gestionale SaaS modulare per aziende (Laravel/React/AWS). Sistema multi-tenant con task management, CRM, gestione magazzino e automazioni.",
+		"logo": "/assets/images/experiences/worklume.ico"
+	},
+	{
+		"dates": "2018 · 2023",
+		"role": "Senior Full-Stack Developer",
+		"company": "Varie aziende",
+		"description": "Sviluppo di sistemi complessi, migrazione da legacy (Zend1, PHP) a moderne architetture React e microservizi. Focus su performance e scalabilità.",
+		"logo": "/assets/images/experiences/freelance.ico"
+	}
+]
