@@ -6,4 +6,5 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
 	site: 'https://caporro.github.io',
 	integrations: [tailwind()],
+	base: 'caporro.com',
 });
