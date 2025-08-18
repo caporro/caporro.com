@@ -4,7 +4,6 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://caporro.github.io',
+	site: 'https://caporro.com',
 	integrations: [tailwind()],
-	base: 'caporro.com',
 });
