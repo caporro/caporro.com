@@ -14,8 +14,6 @@ There's an uncomfortable truth in our industry: project documentation is almost 
 
 We all stumble on the second one. In this post, I won't talk about how to write good documentation (that's an art on its own), but about how to force it to stay in sync with code—automatically.
 
-> [!caution] test
-
 ## The Documentation Paradox in the AI Era
 
 Documentation is both a blessing and a curse for every dev team. It's essential for maintainability and collaboration, but it's always one step behind the code. For years, as a Tech Lead, I tried everything: gamification, extra story points, strict PR reviews. Result? It never really stuck. I gave up.

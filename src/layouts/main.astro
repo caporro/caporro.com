@@ -2,7 +2,17 @@
 import Footer from "../components/footer.astro";
 import Header from "../components/header.astro";
 import SquareLines from "../components/square-lines.astro";
-const { title } = Astro.props;
+import "../assets/css/main.css";
+
+const {
+  title,
+  description,
+  canonicalUrl = Astro.url.href,
+  ogImage = "/assets/images/Claudio.png",
+  ogType = "website",
+} = Astro.props;
+
+const siteName = "Claudio Caporro";
 ---
 
 <!doctype html>
@@ -11,6 +21,22 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site).href} />
 
     <!-- Used to add dark mode right away, adding here prevents any flicker -->
     <script is:inline>
@@ -29,8 +55,8 @@ const { title } = Astro.props;
         border-radius: 20px;
       }
     </style>
-    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.png" />
-    <script src="../assets/css/main.css"></script>
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+    <slot name="head" />
     <Fragment set:html={import.meta.env.HEADER_INJECT} />
   </head>
   <body class="antialiased bg-white dark:bg-neutral-950">

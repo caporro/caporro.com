@@ -1,9 +1,36 @@
 ---
 import Layout from "./main.astro";
 const { frontmatter } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: frontmatter.title,
+  description: frontmatter.description,
+  url: canonicalUrl,
+  author: {
+    "@type": "Person",
+    name: "Claudio Caporro",
+    url: "https://caporro.com/about",
+  },
+  publisher: {
+    "@type": "Person",
+    name: "Claudio Caporro",
+    url: "https://caporro.com",
+  },
+});
 ---
 
-<Layout title={frontmatter.title}>
+<Layout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  canonicalUrl={canonicalUrl}
+  ogType="article"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={jsonLd} />
+  </Fragment>
   <main
     class="relative z-30 max-w-4xl pb-1 mx-auto mt-10 bg-white dark:bg-neutral-950 md:rounded-t-md text-neutral-900"
   >
