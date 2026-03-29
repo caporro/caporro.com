@@ -1,0 +1,56 @@
+---
+import Button from "../components/button.astro";
+import PageHeading from "../components/page-heading.astro";
+import Layout from "../layouts/main.astro";
+---
+
+<Layout
+  title="Let's Talk — Claudio Caporro"
+  description="Got a project to discuss or a weird idea that won't leave you alone? Let's talk."
+>
+  <section class="relative z-20 max-w-2xl mx-auto my-12 px-7 lg:px-0">
+    <PageHeading
+      title="Let's Talk"
+      description="I'm not on the conference circuit. But if you've got something interesting, I'm all ears."
+    />
+
+    <div class="mt-10 flex flex-col gap-6 text-base leading-7 text-neutral-600 dark:text-neutral-400">
+      <p>
+        I don't do keynotes. I don't have a "deck ready to go." I haven't been on a panel about the future of software since… actually, never.
+      </p>
+      <p>
+        What I <em class="text-neutral-800 dark:text-neutral-200 not-italic font-medium">do</em> enjoy: a good conversation with someone who's building something weird, struggling with something real, or just has a half-baked idea they need to stress-test out loud.
+      </p>
+      <p>
+        So if you have a project that needs a second brain, an idea that sounds crazy even to you, or you just want to rant about legacy code with someone who won't judge you — reach out.
+      </p>
+      <p>
+        No agenda. No NDAs required for the first message. Telegram is faster, LinkedIn works too if you prefer to keep it professional (I'll try to match the energy).
+      </p>
+    </div>
+
+    <div class="mt-10 p-6 border border-dashed border-neutral-200 dark:border-neutral-700 rounded-2xl bg-neutral-50 dark:bg-neutral-900">
+      <p class="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mb-1">Good reasons to write:</p>
+      <ul class="mt-3 space-y-2 text-sm text-neutral-600 dark:text-neutral-400 list-disc list-inside">
+        <li>You're building something with AI and it's going sideways in an interesting way</li>
+        <li>You have a project that needs a technical opinion (or a reality check)</li>
+        <li>You want to discuss an idea that your colleagues have already dismissed</li>
+        <li>You found a bug in one of my articles and want to make me feel bad about it</li>
+        <li>You just want to talk about the absurdity of modern software development</li>
+      </ul>
+    </div>
+
+    <div class="mt-10 p-6 border border-dashed border-neutral-200 dark:border-neutral-700 rounded-2xl bg-neutral-50 dark:bg-neutral-900">
+      <p class="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mb-1">Less good reasons:</p>
+      <ul class="mt-3 space-y-2 text-sm text-neutral-600 dark:text-neutral-400 list-disc list-inside">
+        <li>Selling me a SaaS tool I "absolutely need"</li>
+        <li>Asking me to speak at your event about blockchain in 2026</li>
+      </ul>
+    </div>
+
+    <div class="flex flex-wrap gap-3 mt-10">
+      <Button text="Telegram" link="https://t.me/zeerg" />
+      <Button text="LinkedIn" link="https://linkedin.com/in/claudio-caporro" />
+    </div>
+  </section>
+</Layout>

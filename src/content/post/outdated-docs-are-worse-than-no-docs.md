@@ -1,8 +1,8 @@
 ---
-layout: ../../layouts/post.astro
 title: Outdated Docs Are Worse Than No Docs — How AI Can Keep Documentation Alive
 description: Exploring a practical solution to the chronic problem of outdated documentation using AI agents, structured metadata, and automation to create truly living documentation systems.
 dateFormatted: August 18, 2025
+tags: ["AI", "Documentation", "Engineering"]
 ---
 
 ![Obsolete documentation](/assets/images/posts/obsolete-documentation.png)

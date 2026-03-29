@@ -1,8 +1,8 @@
 ---
-layout: ../../layouts/post.astro
 title: Don't Look Inside the Black Box — The Developer's New Pact with AI
 description: Exploring how AI is transforming the developer role from code craftsman to strategic architect, and why treating AI-generated code as a black box might be the key to survival in the new era of software development.
-dateFormatted: April 2025
+dateFormatted: April 1, 2025
+tags: ["AI", "Software Development", "Engineering"]
 ---
 
 ![Cover image](/assets/images/posts/black-box-cover.png)

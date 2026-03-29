@@ -1,1 +1,8 @@
-[]
+[
+	{
+		"name": "readit.md",
+		"description": "Portable context for AI agents — share your knowledge base as a link.",
+		"image": "/assets/images/projects/readit-md.png",
+		"url": "/projects/readit-md"
+	}
+]

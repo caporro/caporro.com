@@ -1,8 +1,8 @@
 ---
-layout: ../../layouts/post.astro
 title: "StripFlowing: A Physical Attention Protocol for Developers Managing Parallel AI Agents"
 description: "AI runs in parallel. Your attention doesn't. StripFlowing is a physical attention queue for developers managing multiple AI agents in parallel."
 dateFormatted: March 29, 2026
+tags: ["AI", "Productivity", "Engineering Management"]
 ---
 
 ![StripFlowing desk setup](/assets/images/posts/stripflowing-desk.jpg)

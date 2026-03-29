@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import PageHeading from "../../components/page-heading.astro";
+import PostsLoop from "../../components/posts-loop.astro";
+import Layout from "../../layouts/main.astro";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("post");
+	const allTags = posts.flatMap((post) => post.data.tags ?? []);
+	const uniqueTags = [...new Set(allTags)];
+
+	return uniqueTags.map((tag) => ({
+		params: { tag: tag.toLowerCase().replace(/\s+/g, "-") },
+		props: { tag },
+	}));
+}
+
+const { tag } = Astro.props;
+---
+
+<Layout
+  title={`Posts tagged "${tag}" — Claudio Caporro`}
+  description={`All articles tagged with "${tag}" by Claudio Caporro.`}
+>
+  <section class="relative z-20 max-w-2xl mx-auto my-12 px-7 lg:px-0">
+    <PageHeading
+      title={`#${tag}`}
+      description={`All posts tagged with "${tag}".`}
+    />
+
+    <div class="z-50 flex flex-col items-stretch w-full gap-5 my-8">
+      <PostsLoop count="999999999" filterTag={tag} />
+    </div>
+  </section>
+</Layout>

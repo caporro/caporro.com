@@ -2,11 +2,14 @@
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("post");
 
-const { count } = Astro.props;
+const { count, filterTag } = Astro.props;
 
 function parseDate(dateStr) {
-	const [month, day, year] = dateStr.split(" ");
-	return new Date(`${month} ${Number.parseInt(day)}, ${year}`);
+	const parts = dateStr.replace(",", "").split(" ");
+	if (parts.length === 2) {
+		return new Date(`${parts[0]} 1, ${parts[1]}`);
+	}
+	return new Date(dateStr);
 }
 
 const sortedPosts = allPosts
@@ -14,18 +17,25 @@ const sortedPosts = allPosts
 		...post,
 		date: parseDate(post.data.dateFormatted),
 	}))
+	.filter((post) => {
+		if (!filterTag) return true;
+		return (post.data.tags ?? []).some(
+			(t) => t.toLowerCase().replace(/\s+/g, "-") === filterTag.toLowerCase().replace(/\s+/g, "-"),
+		);
+	})
 	.sort((a, b) => b.date.getTime() - a.date.getTime());
 
-const postsLoop = sortedPosts.slice(0, count).map((post) => {
-	return {
-		...(post.data || {}),
-		link: `/post/${post.slug}`,
-	};
-});
+const postsLoop = sortedPosts.slice(0, count).map((post) => ({
+	...(post.data || {}),
+	link: `/post/${post.slug}`,
+	body: post.body,
+}));
 ---
 
 {
   postsLoop.map((post) => {
+    const words = post.body?.split(/\s+/).filter(Boolean).length ?? 0;
+    const readingTime = Math.max(1, Math.ceil(words / 200));
     return (
       <div
         class="relative border border-transparent border-dashed cursor-pointer p-7 group rounded-2xl"
@@ -84,8 +94,26 @@ const postsLoop = sortedPosts.slice(0, count).map((post) => {
           <p class="text-sm text-neutral-600 dark:text-neutral-400">
             <span>{post.description}</span>
           </p>
-          <div class="mt-2.5 text-xs font-medium text-neutral-800 dark:text-neutral-300">
-            Posted on {post.dateFormatted}
+          <div class="mt-2.5 flex flex-wrap items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400">
+            <span class="font-medium text-neutral-800 dark:text-neutral-300">Posted on {post.dateFormatted}</span>
+            <span class="text-neutral-300 dark:text-neutral-600">·</span>
+            <span>{readingTime} min read</span>
+            {post.tags && post.tags.length > 0 && (
+              <>
+                <span class="text-neutral-300 dark:text-neutral-600">·</span>
+                <div class="flex flex-wrap gap-1.5">
+                  {post.tags.map((tag) => (
+                    <a
+                      href={`/tag/${tag.toLowerCase().replace(/\s+/g, "-")}`}
+                      onclick="event.stopPropagation()"
+                      class="px-2 py-0.5 text-xs rounded-full border border-neutral-200 dark:border-neutral-700 text-neutral-500 dark:text-neutral-400 hover:border-indigo-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-150"
+                    >
+                      {tag}
+                    </a>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

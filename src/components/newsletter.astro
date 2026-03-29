@@ -1,0 +1,33 @@
+---
+// Newsletter signup component
+// Currently configured for Buttondown (buttondown.com).
+// To connect: replace "YOUR_BUTTONDOWN_USERNAME" with your actual username,
+// or swap the action URL for your provider (Mailchimp, ConvertKit, Resend, etc.)
+const NEWSLETTER_ACTION = "https://buttondown.com/api/emails/embed-subscribe/claudiocaporro";
+---
+
+<div class="relative border border-dashed border-neutral-300 dark:border-neutral-700 rounded-2xl p-8 my-10 bg-neutral-50 dark:bg-neutral-900">
+  <h3 class="text-xl font-bold mb-2 dark:text-neutral-100">Stay in the loop</h3>
+  <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-5">
+    New articles on AI, engineering management, and surviving legacy code — directly in your inbox. No spam, unsubscribe anytime.
+  </p>
+  <form
+    action={NEWSLETTER_ACTION}
+    method="post"
+    class="flex flex-col sm:flex-row gap-3"
+  >
+    <input
+      type="email"
+      name="email"
+      placeholder="you@example.com"
+      required
+      class="flex-1 px-4 py-2.5 text-sm rounded-xl border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+    />
+    <button
+      type="submit"
+      class="px-5 py-2.5 text-sm font-semibold rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:bg-neutral-700 dark:hover:bg-neutral-200 transition-colors duration-200"
+    >
+      Subscribe
+    </button>
+  </form>
+</div>

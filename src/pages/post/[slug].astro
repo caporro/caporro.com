@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import PostLayout from "../../layouts/post.astro";
 
 export async function getStaticPaths() {
 	const postEntries = await getCollection("post");
@@ -11,6 +12,17 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+const words = entry.body.split(/\s+/).filter(Boolean).length;
+const readingTime = Math.max(1, Math.ceil(words / 200));
 ---
 
-<Content />
+<PostLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  dateFormatted={entry.data.dateFormatted}
+  tags={entry.data.tags}
+  readingTime={readingTime}
+>
+  <Content />
+</PostLayout>

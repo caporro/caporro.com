@@ -12,6 +12,10 @@
 		"url": "/notes"
 	},
 	{
+		"name": "Speaking",
+		"url": "/speaking"
+	},
+	{
 		"name": "About",
 		"url": "/about"
 	}
