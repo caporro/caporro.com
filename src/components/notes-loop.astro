@@ -84,8 +84,16 @@ const notesLoop = sortedNotes.slice(0, count).map((note) => {
           <p class="text-sm text-neutral-600 dark:text-neutral-400">
             <span>{note.description}</span>
           </p>
-          <div class="mt-2.5 text-xs font-medium text-neutral-800 dark:text-neutral-300">
-            Posted on {note.dateFormatted}
+          <div class="mt-2.5 flex flex-wrap items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400">
+            <span class="font-medium text-neutral-800 dark:text-neutral-300">Posted on {note.dateFormatted}</span>
+            {note.type && note.type !== "note" && (
+              <>
+                <span class="text-neutral-300 dark:text-neutral-600">·</span>
+                <span class="px-2 py-0.5 rounded-full border border-neutral-200 dark:border-neutral-700 text-neutral-600 dark:text-neutral-300">
+                  {note.type}
+                </span>
+              </>
+            )}
           </div>
         </div>
       </div>
