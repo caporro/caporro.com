@@ -1,0 +1,51 @@
+---
+import Newsletter from "../components/newsletter.astro";
+import Layout from "./main.astro";
+
+const { title, description, dateFormatted, type = "note" } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  ogType="article"
+>
+  <main
+    class="relative z-30 max-w-4xl pb-1 mx-auto mt-10 bg-white dark:bg-neutral-950 md:rounded-t-md text-neutral-900"
+  >
+    <div
+      class="relative flex flex-col px-5 pt-6 border-t border-b-0 md:border-r md:border-l md:pt-20 lg:px-0 justify-stretch md:rounded-t-2xl border-neutral-200 dark:border-neutral-800"
+    >
+      <h1
+        class="w-full max-w-2xl mx-auto text-3xl font-bold leading-tight tracking-tighter text-left md:mb-6 md:text-4xl dark:text-neutral-100 lg:text-5xl md:leading-none"
+      >
+        {title}
+      </h1>
+
+      <div class="w-full max-w-2xl mx-auto mb-10 flex flex-wrap items-center gap-3 text-sm text-neutral-500 dark:text-neutral-400">
+        {dateFormatted && <span>{dateFormatted}</span>}
+        {type && type !== "note" && (
+          <>
+            <span class="text-neutral-300 dark:text-neutral-600">·</span>
+            <span class="px-2.5 py-0.5 text-xs font-medium rounded-full border border-neutral-200 dark:border-neutral-700 text-neutral-600 dark:text-neutral-300">
+              {type}
+            </span>
+          </>
+        )}
+      </div>
+    </div>
+
+    <article
+      class="w-full max-w-2xl mx-auto mb-10 prose-sm prose px-7 lg:px-0 lg:prose-lg dark:prose-invert"
+    >
+      <slot />
+    </article>
+
+    <div class="w-full max-w-2xl mx-auto px-7 lg:px-0">
+      <Newsletter />
+    </div>
+  </main>
+</Layout>
