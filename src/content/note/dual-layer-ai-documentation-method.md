@@ -2,7 +2,7 @@
 title: "Dual-Layer AI Documentation Method: An AI-First Documentation System for Repositories"
 description: "A practical AI-first documentation framework for software repositories: bootstrap docs, feature guides, rules, workflows, and incremental updates for AI agents."
 dateFormatted: April 20, 2026
-tags: ["AI", "Documentation", "Software Architecture"]
+type: "resource"
 ---
 
 > Claudio Caporro - v0.3

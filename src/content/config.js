@@ -16,6 +16,7 @@ const noteCollection = defineCollection({
 		title: z.string(),
 		description: z.string(),
 		dateFormatted: z.string(),
+		type: z.string().optional().default("note"),
 	}),
 });
 
