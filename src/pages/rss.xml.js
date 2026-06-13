@@ -3,8 +3,11 @@ import { getCollection } from "astro:content";
 
 function parseDate(dateStr) {
 	const parts = dateStr.replace(",", "").split(" ");
+	if (parts.length === 3) {
+		return new Date(`${parts[0]} ${parts[1]}, ${parts[2]} 12:00:00 UTC`);
+	}
 	if (parts.length === 2) {
-		return new Date(`${parts[0]} 1, ${parts[1]}`);
+		return new Date(`${parts[0]} 1, ${parts[1]} 12:00:00 UTC`);
 	}
 	return new Date(dateStr);
 }

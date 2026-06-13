@@ -2,15 +2,27 @@
 import Newsletter from "../components/newsletter.astro";
 import Layout from "./main.astro";
 
-const { title, description, dateFormatted, tags = [], readingTime } = Astro.props;
+const { title, description, dateFormatted, image, tags = [], readingTime } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+function formatDatePublished(date: string | undefined) {
+  if (!date) return undefined;
+
+  const parsed = new Date(`${date} UTC`);
+  if (Number.isNaN(parsed.getTime())) return undefined;
+
+  return parsed.toISOString().slice(0, 10);
+}
+
+const datePublished = formatDatePublished(dateFormatted);
 const jsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Article",
   headline: title,
   description: description,
   url: canonicalUrl,
+  ...(image ? { image: new URL(image, Astro.site).href } : {}),
+  ...(datePublished ? { datePublished } : {}),
   author: {
     "@type": "Person",
     name: "Claudio Caporro",
@@ -28,6 +40,7 @@ const jsonLd = JSON.stringify({
   title={title}
   description={description}
   canonicalUrl={canonicalUrl}
+  ogImage={image}
   ogType="article"
 >
   <Fragment slot="head">
