@@ -104,3 +104,19 @@ In summary, the developer of the future will be less focused on the syntax of a 
 It's also worth considering that the era of Vibe Coding and AI-friendly architecture, as transformative as it seems today, might itself be a transitional phase.
 
 The AI handles the code; you handle the 'why' and the 'what's next'. That's the new frontier.
+
+---
+
+## Editor's Update — November 2026: Eighteen Months Later, the Same Bottleneck
+
+When I published this article in April 2025, Andrej Karpathy had already introduced [vibe coding](https://x.com/karpathy/status/1886192184808149383). My focus was an engineering consequence of that shift: **human verification cannot scale at the pace of automated code generation**. As software outpaces our ability to read, understand, and manually review it, the developer's role increasingly shifts toward defining intentions, designing boundaries, and validating outcomes.
+
+On October 11, 2026, more than eighteen months after this article, [Karpathy described the same bottleneck at a much larger scale](https://x.com/karpathy/status/2109361082217402758): complex software projects completed by agents from a prompt, thousands of agents collaborating on large projects, and, crucially, **human review and comprehension starting to fall behind**.
+
+His account adds another dimension: a widening gap between what most people believe AI can do and what those working with frontier systems are already experiencing.
+
+That observation brings the engineering question explored here into sharper focus. If generation keeps accelerating while human understanding struggles to keep up, specifications, boundaries, and automated verification become central to how we build and maintain software.
+
+The fundamental challenge hasn't changed. We can generate software faster than we can understand it.
+
+**The future of software engineering isn't about controlling every line of code. It's about learning how to govern systems whose implementation we can no longer fully inspect.**
